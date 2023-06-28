@@ -12,7 +12,7 @@ const AppBackground = ({ children }) => {
       style={{ flex: 1 }}
       start={{x: 1.0, y: 0.0}} end={{x: 0.0, y: 0.0}}
       colors={['#775BC4', '#614799', '#4B326E']}>
-      <View>{children}</View>
+      <View style={{ flex: 1 }}>{children}</View>
     </LinearGradient>
   );
 };

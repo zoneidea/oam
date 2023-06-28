@@ -14,6 +14,9 @@
 		1B8F9AC9127E850899988172 /* libPods-oam-oamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A75F63C8BC90786872EB4D /* libPods-oam-oamTests.a */; };
 		545662E07394BC43DECCE0CA /* libPods-oam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B88932D1F4DCA40F10F065FE /* libPods-oam.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		009308E45CA345D39F0ECB60 /* SinghaEstate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 705796D4097C4BFFB1E5A47F /* SinghaEstate-Bold.ttf */; };
+		591F914E4C48400989B5149D /* SinghaEstate-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0BC2A9F3DF42A4A332A515 /* SinghaEstate-Medium.ttf */; };
+		A84DC4470C524C35AD54488C /* SinghaEstate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90BA72364D7439599BDCEA8 /* SinghaEstate-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		B88932D1F4DCA40F10F065FE /* libPods-oam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4027A5478F4293BF288CE6E /* Pods-oam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oam.debug.xcconfig"; path = "Target Support Files/Pods-oam/Pods-oam.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		705796D4097C4BFFB1E5A47F /* SinghaEstate-Bold.ttf */ = {isa = PBXFileReference; name = "SinghaEstate-Bold.ttf"; path = "../assets/fonts/SinghaEstate-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0D0BC2A9F3DF42A4A332A515 /* SinghaEstate-Medium.ttf */ = {isa = PBXFileReference; name = "SinghaEstate-Medium.ttf"; path = "../assets/fonts/SinghaEstate-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A90BA72364D7439599BDCEA8 /* SinghaEstate-Regular.ttf */ = {isa = PBXFileReference; name = "SinghaEstate-Regular.ttf"; path = "../assets/fonts/SinghaEstate-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2EB60099298F04640E226EFC /* Pods */,
+				69942A6B1DC04314AA909493 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +155,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		69942A6B1DC04314AA909493 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				705796D4097C4BFFB1E5A47F /* SinghaEstate-Bold.ttf */,
+				0D0BC2A9F3DF42A4A332A515 /* SinghaEstate-Medium.ttf */,
+				A90BA72364D7439599BDCEA8 /* SinghaEstate-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +263,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				009308E45CA345D39F0ECB60 /* SinghaEstate-Bold.ttf in Resources */,
+				591F914E4C48400989B5149D /* SinghaEstate-Medium.ttf in Resources */,
+				A84DC4470C524C35AD54488C /* SinghaEstate-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

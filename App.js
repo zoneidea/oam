@@ -1,21 +1,92 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
   Text,
   View,
+  LogBox,
+  ActivityIndicator
 } from 'react-native';
+LogBox.ignoreAllLogs()
+import Orientation from 'react-native-orientation'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { connect, useSelector, useDispatch } from 'react-redux'
+import {
+  setCustomTextInput,
+  setCustomText,
+} from 'react-native-global-props'
+
+const customTextProps = {
+  style: {
+    fontSize: 18,
+    fontFamily: 'SinghaEstate-Regular',
+  }
+};
+
+const customTextInputProps = {
+  style: {
+    fontSize: 16,
+    fontFamily: 'SinghaEstate-Regular',
+  }
+};
+setCustomText(customTextProps);
+setCustomTextInput(customTextInputProps);
+
+import styles from './style/style'
+import Splashscreen from './src/Splashscreen';
 import AppBackground from './components/AppBackground';
+import Loginscreen from './src/Loginscreen';
+import Pincodescreen from './src/Pincodescreen';
+import TabMainscreen from './src/TabMainscreen';
+
+const Stack = createStackNavigator();
+const navigationRef = React.createRef();
 
 const App = () => {
+  const dispatch = useDispatch()
+  const reducer = useSelector(state => state.fetchReducer)
+
+  useEffect(() => {
+    Orientation.lockToPortrait()
+  }, [])
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <AppBackground>
-        <Text>App.js</Text>
-      </AppBackground>
+      <NavigationContainer ref={navigationRef} >
+        <Stack.Navigator initialRouteName='Splash'
+          screenOptions={{
+            gestureEnabled: false
+          }}>
+          <Stack.Screen name="Splash" component={Splashscreen}
+            options={{
+              headerTransparent: true,
+              headerTitle: ''
+            }} />
+          <Stack.Screen name="Login" component={Loginscreen}
+            options={{
+              headerTransparent: true,
+              headerTitle: ''
+            }} />
+          <Stack.Screen name="Pin" component={Pincodescreen}
+            options={{
+              headerTransparent: true,
+              headerTitle: ''
+            }} />
+          <Stack.Screen name="BottomTab" component={TabMainscreen}
+            options={{
+              headerTransparent: true,
+              headerTitle: ''
+            }} />
+        </Stack.Navigator>
+        {
+          reducer.indicator ?
+            <View style={[styles.loadingIndicator]}>
+              <ActivityIndicator color={`white`} />
+            </View>
+            :
+            null
+        }
+      </NavigationContainer>
     </SafeAreaView>
   );
 };
