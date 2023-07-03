@@ -1,13 +1,17 @@
 import {
     OPEN_INDICATOR,
     DISMISS_INDICATOR,
-    SER_USERINFO,
+    SET_USERINFO,
     CLEAR_USERINFO,
+    LOGIN_TOKEN,
+    DAYOFMONTH
 } from '../utils/constants'
 
 const initialState = {
     indicator: false,
-    userInfo: []
+    userInfo: [],
+    loginToken: '',
+    dayMonth: []
 }
 
 export default (state = initialState, action) => {
@@ -22,7 +26,7 @@ export default (state = initialState, action) => {
                 ...state,
                 indicator: false
             }
-        case SER_USERINFO:
+        case SET_USERINFO:
             return {
                 ...state,
                 userInfo: action.payload
@@ -31,6 +35,16 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 userInfo: []
+            }
+        case LOGIN_TOKEN:
+            return {
+                ...state,
+                loginToken: action.payload
+            }
+        case DAYOFMONTH:
+            return {
+                ...state,
+                dayMonth: action.payload
             }
         default:
             return state

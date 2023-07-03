@@ -7,6 +7,7 @@ import {
   ActivityIndicator
 } from 'react-native';
 LogBox.ignoreAllLogs()
+import moment from 'moment';
 import Orientation from 'react-native-orientation'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -32,9 +33,13 @@ const customTextInputProps = {
 setCustomText(customTextProps);
 setCustomTextInput(customTextInputProps);
 
+moment.locale('th');
+require('moment/locale/th.js');
+
+import { GenerateDateMonth } from './actions';
+
 import styles from './style/style'
 import Splashscreen from './src/Splashscreen';
-import AppBackground from './components/AppBackground';
 import Loginscreen from './src/Loginscreen';
 import Pincodescreen from './src/Pincodescreen';
 import TabMainscreen from './src/TabMainscreen';
@@ -48,6 +53,7 @@ const App = () => {
 
   useEffect(() => {
     Orientation.lockToPortrait()
+    // dispatch(GenerateDateMonth())
   }, [])
 
   return (

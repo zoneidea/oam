@@ -5,7 +5,8 @@ import {
     Animated,
     useWindowDimensions
 } from 'react-native'
-import { PRIMARY_COLOR } from '../utils/constants';
+import { PRIMARY_COLOR, THIRD_COLOR, SOFT_COLOR } from '../utils/constants';
+import { panelScaleHeight, panelScaleWidth, fontSizeScale } from '../utils/utils';
 // import { mainBackgroundColor } from '../utils/contants';
 const COMPONENT_HIGHT = 50;
 const BANNER_HEIGHT = 250;
@@ -68,6 +69,39 @@ const styles = StyleSheet.create({
         height: COMPONENT_HIGHT,
         backgroundColor: 'transparent',
         borderRadius: 15,
+    },
+    insidePanelContent: {
+        paddingTop: 20,
+        paddingLeft: 5
+    },
+    notificationCateButtonNormal: {
+        width: panelScaleWidth(140), 
+        height: panelScaleHeight(80), 
+        borderRadius: 10, 
+        backgroundColor: 'white', 
+        margin: 2 
+    },
+    notificationCateButtonActive: {
+        width: panelScaleWidth(140), 
+        height: panelScaleHeight(80), 
+        borderRadius: 10, 
+        backgroundColor: '#E5E8E8', 
+        margin: 2 
+    },
+    calendarItem: {
+        backgroundColor: SOFT_COLOR, 
+        marginBottom: 4, 
+        alignItems: 'center', 
+        padding: 8, 
+        borderRadius: 10
+    },
+    calendarItemIcon: {
+        width: 50, 
+        height: 50, 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        backgroundColor: 'rgba(244, 236, 247, 0.8)', 
+        borderRadius: 10
     }
 })
 

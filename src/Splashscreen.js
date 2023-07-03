@@ -22,11 +22,11 @@ const Splashscreen = ({ navigation }) => {
         <AppBackground style={[ styles.container ]}>
             <View style={[styles.container, styles.center]}>
                 <Image source={logo} style={{ width: '50%', resizeMode: 'contain' }} />
-                <Text style={[styles.fontBold]}>{`การนิคมอุตสาหกรรมแห่งประเทศไทย`}</Text>
+                <Text style={[styles.fontBold, { color: 'white' }]}>{`การนิคมอุตสาหกรรมแห่งประเทศไทย`}</Text>
                 <View style={[styles.containerRow]}>
-                    <Text style={{ fontSize: 14}}>{`Office`}</Text>
+                    <Text style={{ fontSize: 14, color: 'white'}}>{`Office`}</Text>
                     <Text style={[{ color: 'orange', fontSize: 14 }]}>{` Automation `}</Text>
-                    <Text style={{ fontSize: 14}}>{`Management System`}</Text>
+                    <Text style={{ fontSize: 14, color: 'white'}}>{`Management System`}</Text>
                 </View>
             </View>
         </AppBackground>
