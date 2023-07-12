@@ -43,6 +43,9 @@ import Splashscreen from './src/Splashscreen';
 import Loginscreen from './src/Loginscreen';
 import Pincodescreen from './src/Pincodescreen';
 import TabMainscreen from './src/TabMainscreen';
+import Meetingdetailscreen from './src/Bottomtabs/Meetingdetailscreen';
+import Esarabunscreen from './src/Bottomtabs/Esarabunscreen';
+import Edocumentscreen from './src/Bottomtabs/Edocementscreen';
 
 const Stack = createStackNavigator();
 const navigationRef = React.createRef();
@@ -82,6 +85,27 @@ const App = () => {
             options={{
               headerTransparent: true,
               headerTitle: ''
+            }} />
+          <Stack.Screen name="Meetingdetail" component={Meetingdetailscreen}
+            options={{
+              headerTransparent: true,
+              headerTitle: '',
+              headerBackTitle: '',
+              headerShown: false
+            }} />
+          <Stack.Screen name="Esarabun" component={Esarabunscreen}
+            options={{
+              headerTransparent: true,
+              headerTitle: '',
+              headerBackTitle: '',
+              headerShown: false
+            }} />
+          <Stack.Screen name="Edocument" component={Edocumentscreen}
+            options={{
+              headerTransparent: true,
+              headerTitle: '',
+              headerBackTitle: '',
+              headerShown: false
             }} />
         </Stack.Navigator>
         {

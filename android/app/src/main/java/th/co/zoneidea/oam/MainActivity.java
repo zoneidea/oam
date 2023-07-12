@@ -1,4 +1,4 @@
-package com.oam;
+package th.co.zoneidea.oam;
 
 import com.facebook.react.ReactActivity;
 

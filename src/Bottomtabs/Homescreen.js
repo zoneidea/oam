@@ -4,9 +4,12 @@ import {
     View,
     Image,
     FlatList,
+    ScrollView,
+    Dimensions,
     TouchableOpacity
 } from 'react-native';
 import moment from 'moment';
+import Carousel from 'react-native-snap-carousel'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon5 from 'react-native-vector-icons/FontAwesome5'
 
@@ -15,9 +18,10 @@ import { connect, useSelector, useDispatch } from 'react-redux'
 import styles from '../../style/style';
 import { GenerateDateMonth, setDateMonth } from '../../actions';
 import TabBackground from '../../components/TabBackground';
-import { PRIMARY_COLOR, SECONDARY_COLOR, THIRD_COLOR } from '../../utils/constants';
+import { PRIMARY_COLOR, SECONDARY_COLOR, SOFT_COLOR, THIRD_COLOR } from '../../utils/constants';
 import { panelScaleHeight, panelScaleWidth } from '../../utils/utils';
 
+const DEVICE_WIDTH = Dimensions.get('window').width
 const Homescreen = ({ navigation }) => {
     const flatRef = useRef();
     const dispatch = useDispatch()
@@ -35,6 +39,10 @@ const Homescreen = ({ navigation }) => {
         {
             id: 3,
             title: 'การประชุม 3',
+        },
+        {
+            id: 4,
+            title: 'การประชุม 4',
         }
     ])
     const [meetingList, setMeetingList] = useState([
@@ -45,6 +53,38 @@ const Homescreen = ({ navigation }) => {
         {
             id: 2,
             title: 'การประชุม 22',
+        },
+        {
+            id: 3,
+            title: 'การประชุม 33',
+        }
+    ])
+
+    const [dashboardItem, setDashboardItem] = useState([
+        {
+            id: 1,
+            name: 'เรื่องที่พิจารณา',
+            amount: 1
+        }, {
+            id: 2,
+            name: 'รอตรวจสอบ',
+            amount: 2
+        }, {
+            id: 3,
+            name: 'รอลงนาม',
+            amount: 1
+        }, {
+            id: 4,
+            name: 'รอดำเนินการ',
+            amount: 4
+        }, {
+            id: 5,
+            name: 'งานที่ได้รับมอบหมาย',
+            amount: 4
+        }, {
+            id: 6,
+            name: 'ค้นหาหนังสือ',
+            amount: 0
         }
     ])
 
@@ -68,7 +108,7 @@ const Homescreen = ({ navigation }) => {
 
     const _renderCalendarList = ({ item, index }) => {
         return (
-            <TouchableOpacity style={[styles.containerRow, styles.calendarItem]}>
+            <TouchableOpacity style={[styles.containerRow, styles.calendarItem, styles.shadow]}>
                 <View style={{ flex: 0.2 }}>
                     <View style={[styles.calendarItemIcon]}>
                         <Icon5 name="calendar" size={20} color={`white`} solid />
@@ -85,7 +125,8 @@ const Homescreen = ({ navigation }) => {
 
     const _renderMeetingList = ({ item, index }) => {
         return (
-            <TouchableOpacity style={[styles.containerRow, styles.calendarItem]}>
+            <TouchableOpacity style={[styles.containerRow, styles.calendarItem]}
+                onPress={() => navigation.navigate('Meetingdetail')}>
                 <View style={{ flex: 0.2 }}>
                     <View style={[styles.calendarItemIcon]}>
                         <Icon5 name="calendar" size={20} color={`white`} solid />
@@ -121,13 +162,40 @@ const Homescreen = ({ navigation }) => {
         );
     };
 
+    const _renderDashboard = ({ item, index }) => {
+        return (
+            <TouchableOpacity key={item.id}
+                style={[styles.containerRow, { height: panelScaleHeight(150), borderRadius: 10, padding: 10, paddingBottom: 5, borderColor: PRIMARY_COLOR, borderWidth: 1.5 }]}
+                onPress={() => navigation.navigate('Esarabun')}>
+                <View style={{ flex: 0.7 }}>
+                    <Text style={{ fontSize: 20, color: PRIMARY_COLOR }}>{item.name}</Text>
+                </View>
+                <View style={{ flex: 0.3, alignItems: 'flex-end', padding: 10 }}>
+                    <Text style={{ fontSize: 30, color: PRIMARY_COLOR }}>{item.amount}</Text>
+                </View>
+            </TouchableOpacity>
+        )
+    }
+
     return (
         <TabBackground style={[styles.container]}>
             <View style={[styles.container, styles.insidePanelContent]}>
                 <View style={{ padding: 5 }}>
                     <Text style={[styles.fontBold, { fontSize: 14 }]}><Icon name="book" size={15} color={PRIMARY_COLOR} />{` ระบบสารบรรณอิเล็กทรอนิคส์ | eSaraban`}</Text>
                     <View>
-                        <Text>Dashboard</Text>
+                        <Carousel
+                            layout={'default'}
+                            layoutCardOffset={18}
+                            data={dashboardItem}
+                            renderItem={_renderDashboard}
+                            sliderWidth={DEVICE_WIDTH}
+                            itemWidth={panelScaleWidth(DEVICE_WIDTH + 60)}
+                            inactiveSlideScale={0.94}
+                            inactiveSlideOpacity={0.7}
+                            contentInsetAdjustmentBehavior='always'
+                            hasParallaxImages={true}
+                            contentContainerCustomStyle={[styles.shadow]}
+                        />
                     </View>
                 </View>
                 <View style={[styles.hrGray]}></View>
@@ -169,7 +237,7 @@ const Homescreen = ({ navigation }) => {
                             <Text style={[styles.fontBold, { fontSize: 14 }]}>{`see all`}</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={[styles.containerRow]}>
+                    <View style={[styles.containerRow, { flex: 0.5 }]}>
                         <View style={{ flex: 0.15, alignItems: 'center' }}>
                             <Text style={[styles.fontBold, { fontSize: 22, color: PRIMARY_COLOR }]}>{moment('2023-07-01').format('D')}</Text>
                             <Text style={[styles.fontBold, { fontSize: 12, color: PRIMARY_COLOR }]}>{moment('2023-07-01').format('MMMM')}</Text>
@@ -189,7 +257,7 @@ const Homescreen = ({ navigation }) => {
                             <Text style={[styles.fontBold, { fontSize: 14 }]}>{`see all`}</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={[styles.containerRow]}>
+                    <View style={[styles.containerRow, { flex: 0.5 }]}>
                         <View style={{ flex: 0.15, alignItems: 'center' }}>
                             <Text style={[styles.fontBold, { fontSize: 22, color: PRIMARY_COLOR }]}>{moment('2023-07-02').format('D')}</Text>
                             <Text style={[styles.fontBold, { fontSize: 12, color: PRIMARY_COLOR }]}>{moment('2023-05-02').format('MMMM')}</Text>

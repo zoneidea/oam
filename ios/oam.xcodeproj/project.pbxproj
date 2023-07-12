@@ -17,6 +17,8 @@
 		009308E45CA345D39F0ECB60 /* SinghaEstate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 705796D4097C4BFFB1E5A47F /* SinghaEstate-Bold.ttf */; };
 		591F914E4C48400989B5149D /* SinghaEstate-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0BC2A9F3DF42A4A332A515 /* SinghaEstate-Medium.ttf */; };
 		A84DC4470C524C35AD54488C /* SinghaEstate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90BA72364D7439599BDCEA8 /* SinghaEstate-Regular.ttf */; };
+		1EA745A926F24F7797BF5B5B /* libRNPDFView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D8D3D8208C426EBB616D85 /* libRNPDFView.a */; };
+		8B9D09F2CD684BD7A46CDC45 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A49D8FA1AD6446779A80548F /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,9 @@
 		705796D4097C4BFFB1E5A47F /* SinghaEstate-Bold.ttf */ = {isa = PBXFileReference; name = "SinghaEstate-Bold.ttf"; path = "../assets/fonts/SinghaEstate-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0D0BC2A9F3DF42A4A332A515 /* SinghaEstate-Medium.ttf */ = {isa = PBXFileReference; name = "SinghaEstate-Medium.ttf"; path = "../assets/fonts/SinghaEstate-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A90BA72364D7439599BDCEA8 /* SinghaEstate-Regular.ttf */ = {isa = PBXFileReference; name = "SinghaEstate-Regular.ttf"; path = "../assets/fonts/SinghaEstate-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		868E628BBCDA4FFD88E86321 /* RNPDFView.xcodeproj */ = {isa = PBXFileReference; name = "RNPDFView.xcodeproj"; path = "../node_modules/react-native-pdf-view/RNPDFView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B2D8D3D8208C426EBB616D85 /* libRNPDFView.a */ = {isa = PBXFileReference; name = "libRNPDFView.a"; path = "libRNPDFView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A49D8FA1AD6446779A80548F /* logo.png */ = {isa = PBXFileReference; name = "logo.png"; path = "../assets/images/logo.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				545662E07394BC43DECCE0CA /* libPods-oam.a in Frameworks */,
+				1EA745A926F24F7797BF5B5B /* libRNPDFView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +133,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				868E628BBCDA4FFD88E86321 /* RNPDFView.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 				705796D4097C4BFFB1E5A47F /* SinghaEstate-Bold.ttf */,
 				0D0BC2A9F3DF42A4A332A515 /* SinghaEstate-Medium.ttf */,
 				A90BA72364D7439599BDCEA8 /* SinghaEstate-Regular.ttf */,
+				A49D8FA1AD6446779A80548F /* logo.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 				009308E45CA345D39F0ECB60 /* SinghaEstate-Bold.ttf in Resources */,
 				591F914E4C48400989B5149D /* SinghaEstate-Medium.ttf in Resources */,
 				A84DC4470C524C35AD54488C /* SinghaEstate-Regular.ttf in Resources */,
+				8B9D09F2CD684BD7A46CDC45 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +481,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oam.app/oam";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-pdf-view/RNPDFView",
+				);
 			};
 			name = Debug;
 		};
@@ -496,6 +513,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oam.app/oam";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-pdf-view/RNPDFView",
+				);
 			};
 			name = Release;
 		};
@@ -522,6 +547,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-pdf-view/RNPDFView",
+				);
 			};
 			name = Debug;
 		};
@@ -546,6 +575,10 @@
 				PRODUCT_NAME = oam;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-pdf-view/RNPDFView",
+				);
 			};
 			name = Release;
 		};

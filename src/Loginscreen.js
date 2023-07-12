@@ -9,48 +9,74 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView
 } from 'react-native';
+import axios from 'axios';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { connect, useSelector, useDispatch } from 'react-redux'
 
+import Helper from '../utils/Helper'
 import logo from '../assets/images/logo.png'
 import styles from '../style/style';
 import AppBackground from '../components/AppBackground';
 import { indicatorControll, loginToken, GenerateDateMonth } from '../actions'
-import { PRIMARY_COLOR, BASE_URL, LOGIN_URL, HEADERFORMDATA } from '../utils/constants';
+import { PRIMARY_COLOR, BASE_URL, LOGIN_URL, HEADERFORMDATA, HEADERJSON } from '../utils/constants';
 
 const Loginscreen = ({ navigation }) => {
   const dispatch = useDispatch()
   const inputUsername = useRef();
-  const inportPassword = useRef();
+  const inputPassword = useRef();
 
-  const [username, setUsername] = useState()
-  const [password, setPassword] = useState()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const Login = () => {
-    navigation.replace('BottomTab')
-    // let formData = new FormData();
-    // formData.append('USERNAME', username)
-    // formData.append('PASSWORD', password)
-
     // dispatch(indicatorControll(true))
-    // fetch(BASE_URL + LOGIN_URL, {
-    //   method: 'POST',
-    //   headers: HEADERFORMDATA,
-    //   body: formData
-    // }).then((response) => response.json())
-    //   .then((json) => {
-    //     dispatch(indicatorControll(false))
-    //     if (json.status != 'error') {
-    //       // dispatch(loginToken(json))
-    //       // dispatch(userinfoControll(true, json.userLogin))
-    //     } else {
-    //       alert('พบข้อผิดพลาด', json.message)
-    //     }
+    fetch('https://dev-oms.ieat.go.th/api/mobile/auth/login', {
+      method: 'POST',
+      headers: HEADERJSON,
+      body: JSON.stringify({
+        'username': username,
+        'password': password
+      })
+    }).then((response) => response.json()
+    ).then((json) => {
+        // dispatch(indicatorControll(false))
+        console.log(JSON.stringify(json))
+        // if (json.status != 'error') {
+        //   dispatch(loginToken(json.token))
+        //   dispatch(userinfoControll(true, json.userLogin))
+        //   navigation.replace('BottomTab')
+        // } else {
+        //   alert('พบข้อผิดพลาด', json.message)
+        // }
+      }).catch((error) => {
+        // dispatch(indicatorControll(false))
+        console.log('catch' + JSON.stringify(error))
+      });
+
+    // let body = {
+    //   'username': username,
+    //   'password': password
+    // }
+    // Helper.post(BASE_URL + LOGIN_URL, body, HEADERJSON, (results) => {
+    //   console.log(JSON.stringify(results))
+    // })
+
+    // try {
+    //   const response = await axios({
+    //     method: 'POST',
+    //     headers: {'Content-Type': 'application/json; charset=UTF-8'},
+    //     url: 'https://dev-oms.ieat.go.th/api/mobile/auth/login',
+    //     body: JSON.stringify({
+    //       'username': username,
+    //       'password': password
+    //     })
     //   })
-    //   .catch((error) => {
-    //     alert('error: ' + JSON.stringify(error))
-    //   });
+    //   console.log(JSON.stringify(response))
+    // } catch (error) {
+    //   console.log(JSON.stringify(error))
+    // }
+    // navigation.replace('BottomTab')
   }
 
   useEffect(() => {
@@ -80,20 +106,22 @@ const Loginscreen = ({ navigation }) => {
                 autoCapitalize={false}
                 returnKeyType={'next'}
                 blurOnSubmit={false}
+                value={username}
                 placeholderTextColor={PRIMARY_COLOR}
-                onChangeText={(username) => setUsername(username)}
-                onSubmitEditing={() => inportPassword.current.focus()} />
+                onChangeText={(text) => setUsername(text)}
+                onSubmitEditing={() => inputPassword.current.focus()} />
               <View style={[styles.hr]}></View>
               <TextInput
-                ref={inportPassword}
+                ref={inputPassword}
                 style={[styles.inputContainer]}
                 placeholder='รหัสผ่าน'
                 secureTextEntry={true}
                 autoCapitalize={false}
                 returnKeyType={'done'}
                 blurOnSubmit={false}
+                value={password}
                 placeholderTextColor={PRIMARY_COLOR}
-                onChangeText={(password) => setUsername(password)}
+                onChangeText={(text) => setPassword(text)}
                 onSubmitEditing={() => Login()} />
               <View style={[styles.hr]}></View>
               <TouchableOpacity style={{ alignSelf: 'flex-end', paddingRight: 40 }}>

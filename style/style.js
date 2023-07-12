@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 6,
+        elevation: 6
     },
     center: {
         alignItems: 'center',
@@ -75,33 +75,57 @@ const styles = StyleSheet.create({
         paddingLeft: 5
     },
     notificationCateButtonNormal: {
-        width: panelScaleWidth(140), 
-        height: panelScaleHeight(80), 
-        borderRadius: 10, 
-        backgroundColor: 'white', 
-        margin: 2 
+        width: panelScaleWidth(140),
+        height: panelScaleHeight(80),
+        borderRadius: 10,
+        backgroundColor: 'white',
+        margin: 2
     },
     notificationCateButtonActive: {
-        width: panelScaleWidth(140), 
-        height: panelScaleHeight(80), 
-        borderRadius: 10, 
-        backgroundColor: '#E5E8E8', 
-        margin: 2 
+        width: panelScaleWidth(140),
+        height: panelScaleHeight(80),
+        borderRadius: 10,
+        backgroundColor: '#E5E8E8',
+        margin: 2
     },
     calendarItem: {
-        backgroundColor: SOFT_COLOR, 
-        marginBottom: 4, 
-        alignItems: 'center', 
-        padding: 8, 
+        backgroundColor: SOFT_COLOR,
+        marginBottom: 4,
+        alignItems: 'center',
+        padding: 8,
         borderRadius: 10
     },
     calendarItemIcon: {
-        width: 50, 
-        height: 50, 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        backgroundColor: 'rgba(244, 236, 247, 0.8)', 
+        width: 50,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(244, 236, 247, 0.8)',
         borderRadius: 10
+    },
+    inputWithIcon: {
+        paddingLeft: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        height: COMPONENT_HIGHT,
+        width: '95%',
+        backgroundColor: 'white',
+        justifyContent: 'space-between',
+        borderRadius: COMPONENT_HIGHT / 2,
+        margin: 10,
+    },
+    panelContainer: {
+        alignItems: 'center',
+        width: panelScaleWidth(DEVICE_WIDTH + 240),
+        backgroundColor: 'white',
+        justifyContent: 'space-between',
+        margin: 10,
+    },
+    modalContainer: {
+        alignItems: 'center',
+        width: panelScaleWidth(DEVICE_WIDTH + 300),
+        backgroundColor: 'white',
+        margin: 10,
     }
 })
 
